@@ -1,0 +1,9 @@
+.default {
+	cursor: pointer;
+	font: inherit;
+	outline: none;
+	padding: 8px;
+	border-radius: 4px;
+	border: hidden;
+	background: transparent;
+}

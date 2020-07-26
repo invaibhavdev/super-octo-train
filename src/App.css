@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+.Grid-head {
+  display: grid;
+  grid-template-columns: 10% 10% 10% auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.Header-style {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+}
+
+article:nth-child(odd) {
+  background-color:  #fff;
+}
+article:nth-child(even) {
+  background-color: #e5e6e0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
