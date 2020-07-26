@@ -5,7 +5,6 @@
 body {
   max-width: 1200px;
   margin: 0 auto;
-  pointer-events: none;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -32,7 +31,7 @@ body {
 
 .Grid-head {
   display: grid;
-  grid-template-columns: 5% 5% 5% auto;
+  grid-template-columns: 5% 5% 5% 1fr;
   grid-gap: 20px;
   padding: 10px;
   align-items: end;
@@ -45,6 +44,7 @@ body {
   font-weight: bold;
   text-align: center;
   font-size: .9em;
+  text-align: left;
 }
 
 article:nth-child(odd) {
@@ -54,6 +54,11 @@ article:nth-child(even) {
   background-color: #e5e6e0;
 }
 
+@media only screen and (max-width: 767px) {
+  .Header-style span {
+    display: none;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
