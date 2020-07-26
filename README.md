@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ### Live on: https://secret-harbor-00164.herokuapp.com/
-## Tasks done
+## Tasks done:
 
 ### Responsive design
 ### SSR
