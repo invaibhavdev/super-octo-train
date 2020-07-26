@@ -43,6 +43,7 @@ const NewsInfo = styled.div`
 	}
 	text-align: left;
 	@media only screen and (max-width: 767px) {
+	width: calc(100% - 48px);
 	.visible-phone-inline {
 		display: inline-block;
 	}
@@ -55,7 +56,7 @@ export default (props) => (
 	<News className="Grid-head">
 		<SubtextDark className="only-desk">{props.comments}</SubtextDark>
 		<SubtextDark className="only-desk">{props.votes}</SubtextDark>
-		<Button>
+		<Button onClick={props.upvoteArticle}>
 			<BsFillTriangleFill color="#9d9e98" />
 		</Button>
 		<NewsInfo>
@@ -71,7 +72,7 @@ export default (props) => (
 				<Subtext>by</Subtext>
 				<SubtextDark>{props.author}</SubtextDark>
 				<Subtext>{dateFormat(props.createdAt)}</Subtext>
-				<Button><SubtextDark>[hide]</SubtextDark></Button>
+				<Button onClick={() => { props.hidePost(props.id);}}><SubtextDark>[hide]</SubtextDark></Button>
 			</div>
 		</NewsInfo>
 	</News>

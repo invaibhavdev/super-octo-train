@@ -6,11 +6,20 @@ export const loadPageData = (payload) => {
 }
 
 export const loadPageDataSuccess = (res) => {
-	const hiddenList = localStorage.getItem('hidden') || [];
+	const hiddenList = JSON.parse(localStorage.getItem('hidden')) || [];
 	return {
 		type: 'LOAD_PAGE_DATA_SUCCESS',
-		data: res.filter(item => hiddenList.indexOf(item.objectID) === -1),
-		// data: res
+		data: res.hits.filter(item => hiddenList.indexOf(item.objectID) === -1),
+		prevPage: res.page > 0,
+		nextPage: res.page < (res.nbPages -1)
+	}
+}
+
+export const updatePageData = (res) => {
+	// const hiddenList = JSON.parse(localStorage.getItem('hidden')) || [];
+	return {
+		type: 'UPDATE_PAGE_DATA',
+		data: res,
 	}
 }
 
@@ -21,12 +30,12 @@ export const loadPageDataFailure = (err) => {
 	}
 }
 
-export const hideArticle = (id) => {
-	return {
-		type: 'HIDE_ARTICLE',
-		payload: id,
-	}
-}
+// export const hideArticle = (id) => {
+// 	return {
+// 		type: 'HIDE_ARTICLE',
+// 		payload: id,
+// 	}
+// }
 
 export const upvoteArticle = (id) => {
 	return {
@@ -42,18 +51,22 @@ export function fetchNews(page=0) {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(loadPageDataSuccess(json.hits));
+        dispatch(loadPageDataSuccess(json));
         return json.hits;
       })
       .catch(error => dispatch(loadPageDataFailure(error)));
   };
 }
 
-// export function hideArticle() {
-// 	return (dispatch, getState) => {
-// 		// localStorage.setItem('')
-// 	}
-// }
+export function hideArticle(id) {
+	// currently hiding using localstorage which could be easily replaced by any API 
+	return (dispatch) => {
+		const arr = JSON.parse(localStorage.getItem('hidden')) || [];
+		arr.push(id);
+		localStorage.setItem('hidden', JSON.stringify(arr));
+		dispatch(updatePageData(arr));
+	}
+}
 
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {

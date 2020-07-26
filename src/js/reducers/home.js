@@ -12,9 +12,28 @@ function rootReducer(state = initialState, action) {
 				...state,
 				isLoading: false,
 				pageData: action.data,
+				prevPage: action.prevPage,
+				nextPage: action.nextPage,
 			}
+		case 'UPDATE_PAGE_DATA':
+			return {
+				...state,
+				pageData: state.pageData.filter((item) => action.data.indexOf(item.objectID) === -1 )
+			}
+		case 'UPVOTE_ARTICLE':
+			return {
+				...state,
+				pageData: state.pageData.map((item) => {
+					if(item.objectID === action.payload) {
+						item.points = item.points + 1;
+					}
+					return item
+				})
+			}
+		// case ''
+		default:
+			return state
 	}
-	return state
 }
 
 export default rootReducer;
