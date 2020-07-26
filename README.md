@@ -1,4 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Live on: https://secret-harbor-00164.herokuapp.com/
+## Tasks done
+
+### Responsive design
+### SSR
+### Chart
+### Hide functionality
+### Upvote (partial)
+### Semantic syntax
+### CI/CD
+### Docker file
+### Pagination
+### Deployment on Heroku
+### App state maintenance using Redux
 
 ## Available Scripts
 
