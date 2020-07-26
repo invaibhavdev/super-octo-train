@@ -38,7 +38,7 @@ export const upvoteArticle = (id) => {
 export function fetchNews(page=0) {
   return dispatch => {
     dispatch(loadPageData());
-    return fetch(`http://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=10&page=${page}`)
+    return fetch(`https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=15&page=${page}`)
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {

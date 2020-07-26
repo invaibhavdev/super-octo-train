@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'components/UI/Button';
+import { RiLoader4Line } from 'react-icons/ri';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchNews } from 'js/actions/home';
 import getQueryParam from 'utils/getQueryParam';
@@ -28,6 +29,7 @@ function App() {
           title={newsItem.title}
           votes={newsItem.points}
           author={newsItem.author}
+          url={newsItem.url}
         />
       </article>)
     })
@@ -42,14 +44,15 @@ function App() {
         <span>News Details</span>
       </header>
       <main>
-        <section>
-          <ul>
+        <section role="list">
             {renderNewsList(newsItems)}
-          </ul>
         </section>
+        {
+          (isLoading) ? <RiLoader4Line color="#ff6600" /> : null
+        }
         <section>
           <Button disabled={!prevPage} onClick={() => {setPageNum(prevPageNum => prevPageNum - 1)}}>Prev</Button>
-          <Button disabled={!nextPage} onClick={() => {setPageNum(prevPageNum => prevPageNum + 1)}}>Next</Button>
+          <Button  onClick={() => {setPageNum(prevPageNum => prevPageNum + 1)}}>Next</Button>
         </section>
         <section>
           chart
