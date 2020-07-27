@@ -1,10 +1,16 @@
-import React from 'react';
-import classes from './Button.module.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classes from './Button.module.css'
 
-export default (props) => {
-	return(
-		<button className={classes.default} {...props}>
-			{props.children}
-		</button>
-	)
+const Button = (props) => {
+  return (
+    <button className={classes.default} {...props}>
+      {props.children}
+    </button>
+  )
 }
+
+Button.propTypes = {
+  children: PropTypes.any
+}
+export default Button

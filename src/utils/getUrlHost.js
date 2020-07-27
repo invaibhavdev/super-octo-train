@@ -1,4 +1,4 @@
 export default (url) => {
-	const parser = new URL(url);
-	return parser.host;
+  const parser = new URL(url)
+  return parser.host
 }

@@ -1,5 +1,5 @@
-export default () => {
-	let params = (new URL(document.location)).searchParams;
-	let page = params.get("p");
-	return page;
+export default (url) => {
+  const params = new URL(url).searchParams
+  const page = params.get('p')
+  return page
 }
