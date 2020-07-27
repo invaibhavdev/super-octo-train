@@ -13,6 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Pagination(Can also jump to pages using ?p={page number} as query params)
 ### Deployment on Heroku
 ### App state maintenance using Redux
+### Optimized production build deployed on server
 
 ## Available Scripts
 
