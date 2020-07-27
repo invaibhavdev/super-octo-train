@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Semantic syntax
 ### CI/CD
 ### Docker file
-### Pagination
+### Pagination(Can also jump to pages using ?p={page number} as query params)
 ### Deployment on Heroku
 ### App state maintenance using Redux
 
