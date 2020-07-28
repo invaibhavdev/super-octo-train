@@ -20,7 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn prod`
 
 Runs the app in the production mode on port 3000
 
@@ -36,7 +36,7 @@ Runs eslint script
 
 Runs lint with fix to fix as many linting errors as possible
 
-### `yarn dev`
+### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
