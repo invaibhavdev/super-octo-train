@@ -64,7 +64,10 @@ const NewsItem = (props) => (
         <Link target="_blank" rel="noopener noreferrer" href={props.url}>
           {props.title}
         </Link>
-        <Subtext>({getUrlHost(props.url)})</Subtext>
+        {
+          (props.url) &&
+          <Subtext>({getUrlHost(props.url)})</Subtext>
+        }
       </div>
       <div>
         <div className="visible-phone-inline">
