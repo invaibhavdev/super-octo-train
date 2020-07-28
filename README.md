@@ -13,6 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #### Pagination(with bookmarkable URL)
 #### Deployment on Heroku
 #### App state maintenance using Redux
+#### Optimized production build deployed on server
 
 ## Available Scripts
 
