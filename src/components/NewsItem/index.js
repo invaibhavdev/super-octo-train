@@ -95,7 +95,7 @@ NewsItem.propTypes = {
   hidePost: PropTypes.func,
   author: PropTypes.string,
   createdAt: PropTypes.string,
-  url: PropTypes.string
+  url: PropTypes.string,
 }
 
 export default NewsItem
