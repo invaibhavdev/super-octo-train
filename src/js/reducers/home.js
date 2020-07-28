@@ -1,9 +1,9 @@
 const initialState = {
   isLoading: false,
-  pageData: [],
+  pageData: []
 }
 
-function rootReducer(state = initialState, action) {
+function rootReducer (state = initialState, action) {
   switch (action.type) {
     case 'LOAD_PAGE_DATA':
       return { ...state, isLoading: true }
@@ -13,14 +13,14 @@ function rootReducer(state = initialState, action) {
         isLoading: false,
         pageData: action.data,
         prevPage: action.prevPage,
-        nextPage: action.nextPage,
+        nextPage: action.nextPage
       }
     case 'UPDATE_PAGE_DATA':
       return {
         ...state,
         pageData: state.pageData.filter(
           (item) => action.data.indexOf(item.objectID) === -1
-        ),
+        )
       }
     case 'UPVOTE_ARTICLE':
       return {
@@ -30,7 +30,7 @@ function rootReducer(state = initialState, action) {
             item.points = item.points + 1
           }
           return item
-        }),
+        })
       }
     // case ''
     default:

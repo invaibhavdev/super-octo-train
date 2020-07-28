@@ -14,7 +14,7 @@ const PaginationSection = styled.section`
   color: #ff6600;
   text-align: right;
 `
-function App() {
+function App () {
   const dispatch = useDispatch()
   const [pageNum, setPageNum] = useState(getQueryParam(document.location) || 1)
 
@@ -52,9 +52,9 @@ function App() {
         backgroundColor: '#F3F2EB',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
-        data: newsItems.map((item) => item.points),
-      },
-    ],
+        data: newsItems.map((item) => item.points)
+      }
+    ]
   }
 
   // loops over the news article list from the API and returns an array

@@ -27,7 +27,7 @@ PaginationButtons.propTypes = {
   prevPage: PropTypes.bool,
   nextPage: PropTypes.bool,
   onPrevClick: PropTypes.func,
-  onNextClick: PropTypes.func,
+  onNextClick: PropTypes.func
 }
 
 export default PaginationButtons
