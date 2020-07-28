@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const loadPageData = (payload) => {
   return {
     type: 'LOAD_PAGE_DATA',
@@ -41,14 +43,12 @@ export function fetchNews (pageNum) {
   const page = parseInt(pageNum) - 1
   return (dispatch) => {
     dispatch(loadPageData())
-    return fetch(
-      `https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=15&page=${page}`
-    )
-      .then(handleErrors)
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch(loadPageDataSuccess(json))
-        return json.hits
+    return axios
+      .get(
+        `https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=15&page=${page}`
+      )
+      .then((res) => {
+        dispatch(loadPageDataSuccess(res.data))
       })
       .catch((error) => dispatch(loadPageDataFailure(error)))
   }
@@ -62,12 +62,4 @@ export function hideArticle (id) {
     localStorage.setItem('hidden', JSON.stringify(arr))
     dispatch(updatePageData(arr))
   }
-}
-
-// Handle HTTP errors since fetch won't.
-function handleErrors (response) {
-  if (!response.ok) {
-    throw Error(response.statusText)
-  }
-  return response
 }

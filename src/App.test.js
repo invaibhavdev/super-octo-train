@@ -1,15 +1,38 @@
-// import React from 'react'
-// import { render } from '@testing-library/react';
-// import App from './App';
+import axios from 'axios'
+import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store'
 import getQueryParam from 'utils/getQueryParam'
 import getUrlHost from 'utils/getUrlHost'
+import { fetchNews } from 'js/actions/home'
+import mockJSON from '../mockAPIData'
 
-// test('renders learn react link', () => {
-//   // const { getByText } = render(<App />);
-//   // const linkElement = getByText(/learn react/i);
-//   // expect(linkElement).toBeInTheDocument();
-//   console.log('okay')
-// });
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
+
+// Mocking axios
+jest.mock('axios')
+
+// Test case for fetching network call
+describe('fetchNews()', () => {
+  it('it creates LOAD_PAGE_DATA and LOAD_PAGE_DATA_SUCCESS when fetching news', async () => {
+    axios.get.mockResolvedValue(mockJSON)
+    const expectedActions = [
+      {
+        type: 'LOAD_PAGE_DATA'
+      },
+      {
+        type: 'LOAD_PAGE_DATA_SUCCESS',
+        data: mockJSON.data.hits,
+        prevPage: mockJSON.data.page > 0,
+        nextPage: mockJSON.data.page < mockJSON.data.nbPages - 1
+      }
+    ]
+    const store = mockStore({ isLoading: false, pageData: [] })
+    return store.dispatch(fetchNews()).then(() => {
+      expect(store.getActions()).toMatchObject(expectedActions)
+    })
+  })
+})
 
 describe('Return page number', () => {
   // this is a test to get page number from query params in order to fetch data from the HN API

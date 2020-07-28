@@ -10,6 +10,7 @@ const PaginationButton = styled(Button)`
   color: ${(props) => (props.disabled ? '#e5e6e0' : '#ff6600')};
   font-weight: bold;
   background: transparent;
+  cursor: pointer;
 `
 const PaginationButtons = (props) => (
   <React.Fragment>

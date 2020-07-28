@@ -14,12 +14,29 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #### Deployment on Heroku
 #### App state maintenance using Redux
 #### Optimized production build deployed on server
+#### Jest tests
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn start`
+
+Runs the app in the production mode on port 3000
+
+### `yarn prettier`
+
+Runs the code formatter
+
+### `yarn lint`
+
+Runs eslint script
+
+### `yarn lint:fix`
+
+Runs lint with fix to fix as many linting errors as possible
+
+### `yarn dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
